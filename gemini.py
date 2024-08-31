@@ -56,6 +56,12 @@ if prompt := st.chat_input("Type your message:"):
             model = genai.GenerativeModel(
                 model_name="gemini-1.5-pro",
                 generation_config=generation_config,
+                safety_settings={
+        genai.types.HarmCategory.HARM_CATEGORY_HATE_SPEECH: genai.types.HarmBlockThreshold.BLOCK_NONE,
+        genai.types.HarmCategory.HARM_CATEGORY_HARASSMENT: genai.types.HarmBlockThreshold.BLOCK_NONE,
+        genai.types.HarmCategory.HARM_CATEGORY_SEXUALLY_EXPLICIT: genai.types.HarmBlockThreshold.BLOCK_NONE,
+        genai.types.HarmCategory.HARM_CATEGORY_DANGEROUS_CONTENT: genai.types.HarmBlockThreshold.BLOCK_NONE,
+    }
             )
             st.session_state.chat_session = model.start_chat(history=[])
         
