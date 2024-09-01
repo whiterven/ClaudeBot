@@ -2,3 +2,4 @@ streamlit
 google-generativeai
 pillow
 langchain_community
+anthropic
