@@ -41,7 +41,7 @@ if prompt := st.chat_input("Type your message:"):
         try:
             with st.spinner("Thinking..."):
                 response = client.messages.create(
-                    model="claude-3-5-sonnet-20240620",
+                    model="claude-3-5-sonnet-20241022",
                     max_tokens=4000,  # Increased from 1000 to 4000
                     temperature=0,
                     messages=st.session_state.messages
